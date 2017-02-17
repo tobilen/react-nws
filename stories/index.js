@@ -1,20 +1,21 @@
 import React from 'react';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import { storiesOf, action } from '@kadira/storybook';
-import RaisedButton from 'material-ui/RaisedButton';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import Button from './../app/components/Button';
 
 injectTapEventPlugin();
 
 
 storiesOf('Button', module)
   .add('with text', () => (
-    <MuiThemeProvider>
-      <RaisedButton onClick={action('clicked')} label="Hello Button" />
-    </MuiThemeProvider>
+    <Button onClick={action('clicked')} label="Hello Button">
+    </Button>
+  ))
+  .add('with children', () => (
+    <Button onClick={action('clicked')}>
+      Child Element
+    </Button>
   ))
   .add('with some emoji', () => (
-    <MuiThemeProvider>
-      <RaisedButton onClick={action('clicked')} label="😀 😎 👍 💯" />
-    </MuiThemeProvider>
+    <Button onClick={action('clicked')} label="😀 😎 👍 💯" />
   ));
