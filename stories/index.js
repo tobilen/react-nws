@@ -3,8 +3,12 @@ import { storiesOf, action } from '@kadira/storybook';
 import Button from './../app/components/Button';
 import Heading from './../app/components/Heading';
 
+
 storiesOf('Button', module)
-  .add('with label', () => (
+  .addWithInfo(
+    'with label',
+    `Basic Usage of Button`,
+    () => (
     <Button onClick={action('clicked')} label="Hello Button">
       Child Element
     </Button>

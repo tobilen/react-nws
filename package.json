@@ -210,7 +210,9 @@
     "testRegex": "tests/.*\\.test\\.js$"
   },
   "dependencies": {
+    "@kadira/react-storybook-addon-info": "^3.3.0",
     "@kadira/storybook": "^2.35.3",
+    "@kadira/storybook-addon-knobs": "^1.7.1",
     "babel-polyfill": "6.20.0",
     "chalk": "1.1.3",
     "compression": "1.6.2",
