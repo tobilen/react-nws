@@ -13,7 +13,7 @@ function Heading(props) {
   switch(props.order) {
     case 1: heading = (
         <h1 styleName='h1'>
-          {Children.toArray(prps.children)}
+          {Children.toArray(props.children)}
         </h1>
       );
     break;

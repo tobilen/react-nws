@@ -1,41 +1,45 @@
 import React, { PropTypes, Children } from 'react';
 import CSSModules from 'react-css-modules';
 import styles from './styles.css';
+import Icon from './../Icon'
 
-function Button(props) {
-  // Render an anchor tag
-  let button = (
-      <button onClick={props.onClick} label={props.label} styleName='button'>
-        {Children.toArray(props.children)}
-      </button>
-  );
-
-  // If the Button has a handleRoute prop, we want to render a button
-  if (props.href) {
-    button = (
-        <a href={props.href} onClick={props.handleRoute} label={props.label} styleName='link'>
-          {Children.toArray(props.children)}
-        </a>
-    );
+class Button extends React.Component {
+  renderIcon() {
+    if(this.props.icon) {
+      return (
+        <Icon styleName='icon' type={this.props.icon}/>
+      )
+    }
+    return null;
   }
 
-  // If the Button has a handleRoute prop, we want to render a button
-  if (props.handleRoute) {
-    button = (
-        <a onClick={props.handleRoute} label={props.label} styleName='link'>
-          {Children.toArray(props.children)}
-        </a>
+  render() {
+    let button = (
+      <a href={this.props.href} styleName='link'>
+        {(!this.props.iconTrailing) ? this.renderIcon() : null}
+        {Children.toArray(this.props.children)}
+        {(this.props.iconTrailing) ? this.renderIcon() : null}
+      </a>
     );
-  }
 
-  return button;
+    // If the Button has a handleRoute prop, we want to render a button
+    if (this.props.onClick) {
+      button = (
+        <button onClick={this.props.onClick} styleName='button'>
+          {Children.toArray(this.props.children)}
+        </button>
+      );
+    }
+
+    return button;
+  }
 }
 
 Button.propTypes = {
-  handleRoute: PropTypes.func,
   href: PropTypes.string,
   onClick: PropTypes.func,
-  label: PropTypes.string,
+  icon: PropTypes.string,
+  iconTrailing: PropTypes.bool,
   children: PropTypes.node.isRequired,
 };
 
