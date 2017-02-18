@@ -1,34 +1,34 @@
 import React, { PropTypes, Children } from 'react';
-import RaisedButton from 'material-ui/RaisedButton';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-
+import CSSModules from 'react-css-modules';
+import styles from './styles.css';
 
 function Button(props) {
   // Render an anchor tag
   let button = (
-    <MuiThemeProvider>
-      <RaisedButton onClick={props.onClick} label={props.label}>
+      <button onClick={props.onClick} label={props.label} styleName='button'>
         {Children.toArray(props.children)}
-      </RaisedButton>
-    </MuiThemeProvider>
+      </button>
   );
+
+  // If the Button has a handleRoute prop, we want to render a button
+  if (props.href) {
+    button = (
+        <a href={props.href} onClick={props.handleRoute} label={props.label} styleName='link'>
+          {Children.toArray(props.children)}
+        </a>
+    );
+  }
 
   // If the Button has a handleRoute prop, we want to render a button
   if (props.handleRoute) {
     button = (
-      <MuiThemeProvider>
-        <RaisedButton onClick={props.handleRoute} label={props.label}>
+        <a onClick={props.handleRoute} label={props.label} styleName='link'>
           {Children.toArray(props.children)}
-        </RaisedButton>
-      </MuiThemeProvider>
+        </a>
     );
   }
 
-  return (
-    <MuiThemeProvider>
-      {button}
-    </MuiThemeProvider>
-  );
+  return button;
 }
 
 Button.propTypes = {
@@ -39,4 +39,4 @@ Button.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export default Button;
+export default CSSModules(Button, styles);
