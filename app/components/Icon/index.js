@@ -1,6 +1,4 @@
-import React, { PropTypes, Children } from 'react';
-import CSSModules from 'react-css-modules';
-import styles from './styles.css';
+import React, { PropTypes } from 'react';
 
 function Icon(props) {
   return (
