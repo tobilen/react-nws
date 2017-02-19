@@ -15,7 +15,7 @@ class Image extends React.Component {
         {Children.toArray(this.props.children)}
         {Children
           .toArray(this.props.children)
-          .filter((el)=>{return el.props.default})
+          .filter((el)=>el.props.default)
           .map((el)=>this.renderSimpleImage(el))
         }
       </picture>
