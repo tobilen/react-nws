@@ -4,12 +4,14 @@ import { withKnobs, text, boolean, number, select } from '@kadira/storybook-addo
 import Button from './../app/components/Button';
 import Icon from './../app/components/Icon';
 import Heading from './../app/components/Heading';
+import Image from './../app/components/Image';
+import ImageResponsive from './../app/components/Image/ImageResponsive';
 
 const iconOptions = {
   overview: "overview",
   external: "external",
   "neusta-orb": "neusta-orb"
-}
+};
 
 storiesOf('Button', module)
   .addDecorator(withKnobs)
@@ -46,6 +48,7 @@ storiesOf('Button', module)
     </Button>
   ));
 
+/* ************************************************* */
 
 storiesOf('Icon', module)
 .addDecorator(withKnobs)
@@ -54,7 +57,33 @@ storiesOf('Icon', module)
   `Basic Usage of Icon Element.`,
   () => (
     <Icon type={select("Icon", iconOptions, "external")} size={number("Size", 1)}/>
+  ));
+
+
+/* ************************************************* */
+
+
+storiesOf('Image', module)
+.addDecorator(withKnobs)
+.addWithInfo(
+  'Basic',
+  `Basic Usage of Image Element.`,
+  () => (
+    <Image src={text("Source", "http://www.neusta-webservices.de/resources/images/slide_3_635x300.jpg")}/>
   ))
+.addWithInfo(
+  'Responsive',
+  `Usage of repsonsive Image Element`,
+  () => (
+    <Image>
+      <ImageResponsive viewportMax={600} src={text("Source", "http://www.neusta-webservices.de/resources/images/slide_3_635x300.jpg")}/>
+      <ImageResponsive viewportMin={601} src={text("Source", "http://www.neusta-webservices.de/resources/images/slide_3_635x300.jpg")}/>
+      <ImageResponsive default src={text("Source", "http://www.neusta-webservices.de/resources/images/slide_3_635x300.jpg")}/>
+    </Image>
+  ));
+
+
+/* ************************************************* */
 
 
 const headingOrderOptions = {
