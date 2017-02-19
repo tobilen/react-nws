@@ -61,6 +61,13 @@ module.exports = (options) => ({
       query: {
         limit: 10000,
       },
+    }, {
+      test: /\.svg$/,
+      loader: 'svg-sprite-loader?' + JSON.stringify({
+        name: 'icon-[1]',
+        prefixize: true,
+        regExp: 'assets/icons/(.*)\\.svg'
+      })
     }],
   },
   plugins: options.plugins.concat([
@@ -95,4 +102,7 @@ module.exports = (options) => ({
   devtool: options.devtool,
   target: 'web', // Make web variables accessible to webpack, e.g. window
   performance: options.performance || {},
+  node: {
+    fs: "empty"
+  }
 });

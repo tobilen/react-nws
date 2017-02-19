@@ -5,9 +5,9 @@ import Button from './../app/components/Button';
 import Heading from './../app/components/Heading';
 
 const iconOptions = {
-  Overview: "overview",
-  External: "external",
-  Neusta: "neusta-orb"
+  overview: "overview",
+  external: "external",
+  "neusta-orb": "neusta-orb"
 }
 
 storiesOf('Button', module)
@@ -24,7 +24,7 @@ storiesOf('Button', module)
     'with Icon',
     `Link Element with Icon. By default, icons will be positioned before element children`,
     () => (
-    <Button href={text("href", "http://google.com")} icon={select("Icon", iconOptions, "Overview")}>
+    <Button href={text("href", "http://google.com")} icon={select("Icon", iconOptions, "overview")}>
       {text("Label", "Link with Icon")}
     </Button>
   ))
@@ -32,7 +32,7 @@ storiesOf('Button', module)
     'with trailing icon',
     `Link Element with Icon. To override default positioning, icon-position parameter can be specified`,
     () => (
-    <Button href={text("href", "http://google.com")} icon={select("Icon", iconOptions, "External")} iconTrailing={boolean("Trailing Icon", true)}>
+    <Button href={text("href", "http://google.com")} icon={select("Icon", iconOptions, "external")} iconTrailing={boolean("Trailing Icon", true)}>
       {text("Label", "Link with trailing Icon")}
     </Button>
   ))
