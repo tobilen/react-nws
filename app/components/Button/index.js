@@ -7,7 +7,7 @@ class Button extends React.Component {
   renderIcon() {
     if(this.props.icon) {
       return (
-        <Icon styleName='icon' type={this.props.icon}/>
+        <Icon type={this.props.icon}/>
       )
     }
     return null;

@@ -2,6 +2,7 @@ import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
 import { withKnobs, text, boolean, number, select } from '@kadira/storybook-addon-knobs';
 import Button from './../app/components/Button';
+import Icon from './../app/components/Icon';
 import Heading from './../app/components/Heading';
 
 const iconOptions = {
@@ -46,6 +47,15 @@ storiesOf('Button', module)
   ));
 
 
+storiesOf('Icon', module)
+.addDecorator(withKnobs)
+.addWithInfo(
+  'Basic',
+  `Basic Usage of Icon Element.`,
+  () => (
+    <Icon type={select("Icon", iconOptions, "external")} size={number("Size", 1)}/>
+  ))
+
 
 const headingOrderOptions = {
   range: true,
@@ -87,3 +97,5 @@ storiesOf('Heading', module)
       {text("Label", "Heading 4")}
     </Heading>
   ));
+
+

@@ -13,9 +13,9 @@ const renderComponent = (props = {}) => mount(
 
 describe('<Icon />', () => {
 
-  it('should not have children', () => {
-    const renderedComponent = renderComponent();
-    expect(renderedComponent.contains(children)).toEqual(false);
+  it('should render a <svg> tag', () => {
+    const renderedComponent = renderComponent({ handleRoute });
+    expect(renderedComponent.find('svg').length).toEqual(1);
   });
 
 });
