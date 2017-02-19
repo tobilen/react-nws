@@ -2,6 +2,10 @@ import React, { PropTypes } from 'react';
 import CSSModules from 'react-css-modules';
 import styles from './styles.css';
 
+//import icon spritesheet
+const files = require.context('!svg-sprite!./../../assets/icons', false, /.*\.svg$/);
+files.keys().forEach(files);
+
 function Icon(props) {
   return (
     <svg className={`dib v-mid ${props.type}`} width={`${props.size}em`} height={`${props.size}em`} styleName="svg-icon">
