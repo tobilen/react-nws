@@ -156,7 +156,7 @@ storiesOf('Card', module)
     'Card element with image in upper part',
     () => (
       <Card
-          image={text("Label", "http://www.neusta-webservices.de/resources/images/slide_3_635x300.jpg")}
+          image={text("Image URL", "http://www.neusta-webservices.de/resources/images/slide_3_635x300.jpg")}
           bordered={boolean("Bordered", true)}
           href={text("href", "http://google.com")}
       >
