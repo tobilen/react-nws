@@ -1,11 +1,12 @@
 .card {
   width: 350px;
   opacity: .7;
+  margin: 15px;
+  padding: 1px;
 }
 .bordered {
-  margin: 15px;
-  padding: 0;
   border: 1px solid #ddd;
+  padding: 0;
 }
 .with-image {
 

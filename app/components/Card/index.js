@@ -39,14 +39,14 @@ class Card extends React.Component {
       </a>
     );
   }
+}
 
-  propTypes = {
-    children: PropTypes.node.isRequired,
-    bordered: PropTypes.bool,
-    href: PropTypes.string,
-    image: PropTypes.string,
-    icon: PropTypes.string
-  }
+Card.propTypes = {
+  children: PropTypes.node.isRequired,
+  bordered: PropTypes.bool,
+  href: PropTypes.string,
+  image: PropTypes.string,
+  icon: PropTypes.string
 }
 
 export default CSSModules(Card, styles, {allowMultiple: true});
