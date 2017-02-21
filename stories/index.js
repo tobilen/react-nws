@@ -130,15 +130,39 @@ storiesOf('Heading', module)
 
 /* ************************************************* */
 storiesOf('Card', module)
-.addDecorator(withKnobs)
-.addWithInfo(
-  'Basic',
-  'Basic Usage of Card',
-  () => (
-    <Card icon="overview" bordered>
-      <Heading order={3}>
-        Web Developer eCommerce (m/w)
-      </Heading>
-    </Card>
-  ))
+  .addDecorator(withKnobs)
+  .addWithInfo(
+    'Basic',
+    'Basic Usage of Card',
+    () => (
+      <Card icon={select("Icon", iconOptions, "overview")} bordered={boolean("Bordered", true)} href={text("href", "http://google.com")}>
+        <Heading order={number("Heading Order", 3, headingOrderOptions)}>
+          {text("Label", "Web Developer eCommerce (m/w)")}
+        </Heading>
+      </Card>
+    ))
+  .addWithInfo(
+    'with Icon',
+    'Card element with icon in upper part',
+    () => (
+      <Card icon={select("Icon", iconOptions, "overview")} bordered={boolean("Bordered", true)} href={text("href", "http://google.com")}>
+        <Heading order={number("Heading Order", 3, headingOrderOptions)}>
+          {text("Label", "Web Developer eCommerce (m/w)")}
+        </Heading>
+      </Card>
+    ))
+  .addWithInfo(
+    'with Image',
+    'Card element with image in upper part',
+    () => (
+      <Card
+          image={text("Label", "http://www.neusta-webservices.de/resources/images/slide_3_635x300.jpg")}
+          bordered={boolean("Bordered", true)}
+          href={text("href", "http://google.com")}
+      >
+        <Heading order={number("Heading Order", 3, headingOrderOptions)}>
+          {text("Label", "Web Developer eCommerce (m/w)")}
+        </Heading>
+      </Card>
+    ))
 

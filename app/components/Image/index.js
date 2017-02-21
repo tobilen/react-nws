@@ -3,15 +3,22 @@ import CSSModules from 'react-css-modules';
 import styles from './styles.css';
 
 class Image extends React.Component {
+  compoundClasses() {
+    return ([
+      'image',
+      (this.props.contain?'contain':'')
+    ]).join(" ")
+  }
+
   renderSimpleImage(e) {
     return (
-      <img styleName='image' src={e.props.src} />
+      <img styleName={this.compoundClasses()} src={e.props.src} />
     );
   }
 
   renderResponsiveImage() {
     return (
-      <picture>
+      <picture className={this.compoundClasses()}>
         {Children.toArray(this.props.children)}
         {Children
           .toArray(this.props.children)
@@ -34,6 +41,7 @@ class Image extends React.Component {
 Image.propTypes = {
   src: PropTypes.string,
   children: PropTypes.node,
+  contain: PropTypes.bool,
 };
 
-export default CSSModules(Image, styles);
+export default CSSModules(Image, styles, {allowMultiple: true});
