@@ -1,0 +1,23 @@
+.card {
+  width: 350px;
+  margin: 15px;
+  padding: 0;
+  border: 1px solid #ddd;
+
+  opacity: .7;
+}
+.upper {
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  font-size: 76px;
+  text-align: center;
+  padding: 10px 0;
+  width: 100%;
+  color: #e5007d;
+}
+
+.lower {
+  background: #b2b2b2;
+  padding: 25px;
+}

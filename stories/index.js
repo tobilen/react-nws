@@ -6,6 +6,7 @@ import Icon from './../app/components/Icon';
 import Heading from './../app/components/Heading';
 import Image from './../app/components/Image';
 import ImageResponsive from './../app/components/Image/ImageResponsive';
+import Card from './../app/components/Card';
 
 const iconOptions = {
   overview: "overview",
@@ -127,4 +128,17 @@ storiesOf('Heading', module)
     </Heading>
   ));
 
+/* ************************************************* */
+storiesOf('Card', module)
+.addDecorator(withKnobs)
+.addWithInfo(
+  'Basic',
+  'Basic Usage of Card',
+  () => (
+    <Card icon="overview" bordered>
+      <Heading order={3}>
+        Web Developer eCommerce (m/w)
+      </Heading>
+    </Card>
+  ))
 
