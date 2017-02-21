@@ -3,7 +3,7 @@ import CSSModules from 'react-css-modules';
 import styles from './styles.css';
 
 //import icon spritesheet
-const files = require.context('!svg-sprite!./../../assets/icons', false, /.*\.svg$/);
+const files = require.context('!svg-sprite-loader!./../../assets/icons', false, /.*\.svg$/);
 files.keys().forEach(files);
 
 function Icon(props) {

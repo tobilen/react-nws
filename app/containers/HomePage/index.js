@@ -11,13 +11,26 @@
 
 import React from 'react';
 import Heading from './../../components/Heading';
+import Card from './../../components/Card';
 
 export default class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
-      <Heading order={1}>
-        Hello World
-      </Heading>
+      <div>
+        <Heading order={1}>
+          Hello World
+        </Heading>
+        <Card icon="overview">
+          <Heading order={3}>
+            This is a demo card!
+          </Heading>
+        </Card>
+        <Card icon="external" bordered>
+          <Heading order={3}>
+            And this is another demo card! Its even bordered :O
+          </Heading>
+        </Card>
+      </div>
     );
   }
 }
