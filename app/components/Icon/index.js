@@ -9,7 +9,7 @@ files.keys().forEach(files);
 function Icon(props) {
   return (
     <svg className={`dib v-mid ${props.type}`} width={`${props.size}em`} height={`${props.size}em`} styleName="svg-icon">
-      <use xlinkHref={`#${props.type }`}></use>
+      <use xlinkHref={`#${props.type }`} />
     </svg>
   );
 }

@@ -12,8 +12,10 @@
  */
 
 import React from 'react';
+import CSSModules from 'react-css-modules';
+import styles from './styles.css';
 
-export default class App extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+class App extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
 
   static propTypes = {
     children: React.PropTypes.node,
@@ -21,9 +23,11 @@ export default class App extends React.PureComponent { // eslint-disable-line re
 
   render() {
     return (
-      <div>
+      <div styleName="app">
         {React.Children.toArray(this.props.children)}
       </div>
     );
   }
 }
+
+export default CSSModules(App, styles, {allowMultiple: true});

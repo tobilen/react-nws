@@ -12,6 +12,7 @@
 import React from 'react';
 import Heading from './../../components/Heading';
 import Card from './../../components/Card';
+import Image from './../../components/Image';
 
 export default class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
@@ -20,6 +21,11 @@ export default class HomePage extends React.PureComponent { // eslint-disable-li
         <Heading order={1}>
           Hello World
         </Heading>
+        <Heading order={2}>
+          or "How to bridge the gap between frontend and backend"
+        </Heading>
+        <Image src="http://i.imgur.com/qGY8t5d.jpg"/>
+        <br/>
         <Card icon="overview">
           <Heading order={3}>
             This is a demo card!
