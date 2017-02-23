@@ -15,6 +15,7 @@
   "scripts": {
     "storybook": "start-storybook -p 9001 -c .storybook",
     "storybook:prod": "build-storybook -c .storybook -o public/storybook",
+    "development": "cross-env NODE_ENV=development node server",
     "analyze:clean": "rimraf stats.json",
     "preanalyze": "npm run analyze:clean",
     "analyze": "node ./internals/scripts/analyze.js",
